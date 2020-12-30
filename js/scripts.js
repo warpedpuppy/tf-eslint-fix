@@ -7,13 +7,13 @@ let pokemonList = [
         type:['fire'],
         weight: 55,
         gender: 'female',
-    }
+    },
     {
         name:'bulbasoar',
         type:['grass'],
         weight:70,
         gender:'male',
-    }
+    },
     {
         name: 'torracat',
         type:['fire'],
