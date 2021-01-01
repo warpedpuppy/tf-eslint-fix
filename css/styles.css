@@ -1,0 +1,11 @@
+header {
+  text-align: center;
+}
+
+body {
+  background-color: black;
+  color: red;
+  font-family: 'Copperplate', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
