@@ -23,13 +23,28 @@ let pokemonList = [
 ]
 
 
+function myLoop(pokemon) {
+    document.write(pokemon.name + '(Weight: ' + pokemon.weight + ')');
+    if(pokemon.weight >= 100){
+        document.write(" - Wow! Thats big!");
+    }
+    else {
+        document.write('<br>');
+    }
+}
+
+
+
+
+pokemonList.forEach(myLoop);
+
 //Prints list of pokemon & their weight
-for(i = 0; i < pokemonList.length; i++){
+/*for(i = 0; i < pokemonList.length; i++){
     document.write(pokemonList[i].name + ' (Weight: ' +  pokemonList[i].weight + ')');
         if (pokemonList[i].weight >= 100){
             document.write(' Wow! Thats big!' + '<br>');
         }
         else{
             document.write("<br>");
-        }
 }
+}*/
