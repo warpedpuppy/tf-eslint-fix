@@ -24,26 +24,50 @@ let pokemonRepository = (function () {
     }
 
     function add(pokemon) {
-        if(typeof pokemon !== 'object'
-         && "name" in pokemon
-         && "type" in pokemon
-         && "weight" in pokemon
-
-     ){
-        return document.write('Not an object');
-      }
-        else{
+        if (typeof pokemon !== 'object') {
+            return 'Not an object';
+        } else if ("name" in pokemon && "type" in pokemon && "weight" in pokemon) {
+            return `Object doesn't have required properties`;
+        } else {
             pokemonList.push(pokemon);
-            }
+        }
     }
+
+    function showDetails(pokemon){
+        console.log(pokemon);
+    }
+
+
+//creates buttons for pokemon
+    function addListItem(pokemon){
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listPokemon = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('nameButton');
+        addListener(button, pokemon);
+        listPokemon.appendChild(button);
+        pokemonList.appendChild(listPokemon);
+    }
+
+    function addListener(button, pokemon){
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            showDetails(pokemon);
+        })
+    }
+    //creates new object, sent to repository
     return {
         getAll: getAll,
         add: add,
+        addListItem: addListItem,
+        addListener: addListener
+
     };
 })();
 
 //adds a pokemon to repository
-pokemonRepository.add({
+pokemonRepository.add( {
     name: 'Pikachu',
     type: ['electric'],
     weight:30,
@@ -51,5 +75,5 @@ pokemonRepository.add({
 
 //writes pokemon list
 pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write(pokemon.name + " (type: " + pokemon.type + ")" + " (weight " + pokemon.weight + ")" + "<br>");
+    pokemonRepository.addListItem(pokemon);
 });
