@@ -1,24 +1,8 @@
 //creates array of pokemon with properties name, type, weight, and gender
 //wrapped in IIFE
 let pokemonRepository = (function () {
-    let pokemonList = [
-        {
-            name:'Vulpix',
-            type:['fire'],
-            weight: 55,
-        },
-        {
-            name:'Bulbasoar',
-            type:['grass'],
-            weight:70,
-        },
-        {
-            name: 'Torracat',
-            type:['fire'],
-            weight:120,
-        }
-    ];
-
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     function getAll() {
         return pokemonList;
     }
@@ -32,11 +16,6 @@ let pokemonRepository = (function () {
             pokemonList.push(pokemon);
         }
     }
-
-    function showDetails(pokemon){
-        console.log(pokemon);
-    }
-
 
 //creates buttons for pokemon
     function addListItem(pokemon){
@@ -56,24 +35,59 @@ let pokemonRepository = (function () {
             showDetails(pokemon);
         })
     }
+
+    function loadList() {
+        return fetch(apiUrl).then(function (response){
+            return response.json();
+        }).then(function (json) {
+            json.results.forEach(function (item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+            });
+        }).catch(function (e) {
+            console.error(e);
+        })
+    }
+
+//add timeout function to show loader while loading
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (details) {
+            item.imageUrl - details.sprites.front_default;
+            item.weight = details.weight;
+            item.types = details.types;
+        }).catch(function (e) {
+            console.error(e);
+        });
+    }
+
+    function showDetails(pokemon){
+        pokemonRepository.loadDetails(pokemon).then(function () {
+        console.log(pokemon);
+        });
+    }
+
     //creates new object, sent to repository
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
-        addListener: addListener
-
+        addListener: addListener,
+        loadList:loadList,
+        loadDetails: loadDetails,
+        showDetails:showDetails
     };
 })();
 
-//adds a pokemon to repository
-pokemonRepository.add( {
-    name: 'Pikachu',
-    type: ['electric'],
-    weight:30,
-});
 
 //writes pokemon list
-pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
 });
