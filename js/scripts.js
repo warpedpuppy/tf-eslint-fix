@@ -50,40 +50,40 @@ let pokemonRepository = (function () {
         })
     }
 
-    function loadList() {
+    async function loadList() {
 //        showLoadingMessage();
-        return fetch(apiUrl).then(function (response){
-            return response.json();
-        }).then(function (json) {
-//            hideLoadingMessage();
-            json.results.forEach(function (item) {
+        try {
+            const response = await fetch(apiUrl);
+            const json = await response.json();
+            //            hideLoadingMessage();
+            json.results.forEach(function(item) {
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url
                 };
                 add(pokemon);
             });
-        }).catch(function (e) {
-//            hideLoadingMessage();
+        } catch (e) {
+            //            hideLoadingMessage();
             console.error(e);
-        })
+        }
     }
 
 //add timeout function to show loader while loading
-    function loadDetails(item) {
+    async function loadDetails(item) {
         let url = item.detailsUrl;
 //        showLoadingMessage();
-        return fetch(url).then(function (response) {
-            return response.json();
-        }).then(function (details) {
-//        hideLoadingMessage();
+        try {
+            const response = await fetch(url);
+            const details = await response.json();
+            //        hideLoadingMessage();
             item.imageUrl - details.sprites.front_default;
             item.weight = details.weight;
             item.types = details.types;
-        }).catch(function (e) {
-//            hideLoadingMessage();
+        } catch (e) {
+            //            hideLoadingMessage();
             console.error(e);
-        });
+        }
     }
 
     function showDetails(pokemon){
