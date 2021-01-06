@@ -1,5 +1,6 @@
 //creates array of pokemon with properties name, type, weight, and gender
-//wrapped in IIFE
+
+      //wrapped in IIFE
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -18,15 +19,18 @@ let pokemonRepository = (function () {
         }
     }
 
-/*
+
     function showLoadingMessage() {
-        ;
+        spinner.className = "show";
+        setTimeout(() => {
+            spinner.className = "show";
+        }, 5000);
     };
 
     function hideLoadingMessage() {
-        pleaseWait.modal('hide');
+        spinner.className.remove('show');
     };
-*/
+
 //creates buttons for pokemon
     function addListItem(pokemon){
         let pokemonList = document.querySelector('.pokemon-list');
