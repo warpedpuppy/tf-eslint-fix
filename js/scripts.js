@@ -79,7 +79,7 @@ let pokemonRepository = (function () {
             item.imageUrl - details.sprites.front_default;
             item.weight = details.weight;
             item.types = details.types;
-        //    hideLoadingMessage();
+         hideLoadingMessage();
         } catch (e) {
             hideLoadingMessage();
             console.error(e);
