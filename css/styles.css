@@ -53,3 +53,7 @@ ul {
 #spinner.show {
   visibility: visible;
 }
+
+#spinner.hide {
+  visibility: hidden;
+}
