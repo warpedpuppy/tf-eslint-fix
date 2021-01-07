@@ -4,8 +4,6 @@ let pokemonRepository = (function () {
     //let modalContainer = document.querySelector('#modal-container');
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    let = isLoading = false
-    let btn = document.querySelector("button");
     //gets pokemon
     function getAll() {
         return pokemonList;
@@ -24,9 +22,6 @@ let pokemonRepository = (function () {
 
     function showLoadingMessage() {
         spinner.className = "show";
-/*        setTimeout(() => {
-            spinner.className = "show";
-        }, 5000);*/
     };
 
     function hideLoadingMessage() {
@@ -69,7 +64,7 @@ let pokemonRepository = (function () {
             });
             hideLoadingMessage();
         } catch (e) {
-            //            hideLoadingMessage();
+            hideLoadingMessage();
             console.error(e);
         }
     }
@@ -84,7 +79,7 @@ let pokemonRepository = (function () {
             item.imageUrl - details.sprites.front_default;
             item.weight = details.weight;
             item.types = details.types;
-            hideLoadingMessage();
+        //    hideLoadingMessage();
         } catch (e) {
             hideLoadingMessage();
             console.error(e);
