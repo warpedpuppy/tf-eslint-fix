@@ -18,8 +18,15 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 40px;
   margin: 4px 2px;
+  height: 150px;
+  width: 400px;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 ul {
@@ -114,6 +121,7 @@ ul {
   width: 150px;
   height: 150px;
 }
+
 
 .animated {
   -webkit-animation-duration: 1s;
