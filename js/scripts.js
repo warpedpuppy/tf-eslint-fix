@@ -1,9 +1,9 @@
 //creates array of pokemon with properties name, type, weight, and gender
 //wrapped in IIFE
 let pokemonRepository = (function () {
-    let pokemonList = [];
-    let modalContainer = document.querySelector('#modal-container');
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    const pokemonList = [];
+    const modalContainer = document.querySelector('#modal-container');
+    const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     //gets pokemon
     function getAll() {
         return pokemonList;
@@ -45,9 +45,9 @@ let pokemonRepository = (function () {
         try {
             showLoadingMessage();
             const response = await fetch(apiUrl);
-            const json = await response.json();
-            json.results.forEach(function(item) {
-                let pokemon = {
+            const json = await response.json();//json is format for pulling data (like javascript object but not one)
+            json.results.forEach(function(item) { //results is an array method (only works for arrays)
+                let pokemon = { //creates object
                     name: item.name,
                     detailsUrl: item.url
                 };
@@ -62,7 +62,7 @@ let pokemonRepository = (function () {
 
 // loads specific details of api
     async function loadDetails(item) {
-        let url = item.detailsUrl;
+        const url = item.detailsUrl;
         try {
             showLoadingMessage();
             const response = await fetch(url);
@@ -85,8 +85,8 @@ let pokemonRepository = (function () {
     }
 
     //shows pokemon details to console
-        function showDetails(pokemon){
-            pokemonRepository.loadDetails(pokemon).then(function () {
+    function showDetails(pokemon){
+        pokemonRepository.loadDetails(pokemon).then(function () {
             showModal(pokemon);
             });
         }
@@ -105,7 +105,7 @@ let pokemonRepository = (function () {
         titleElement.innerText = pokemon.name;
 
         let contentElement = document.createElement('p');
-        contentElement.innerText = 'Weight: ' + pokemon.weight + ' kg' + '\n' + 'Height: ' + pokemon.height + ' ft';
+        contentElement.innerText = `Weight:  ${pokemon.weight}kg \n Height: ${pokemon.height} in`;
 
 
         let imageElement = document.createElement('img');
@@ -119,16 +119,30 @@ let pokemonRepository = (function () {
         modalContainer.classList.add('is-visible');
     }
 
-    function hideModal() {
+    function hideModal(event) {
+        event.preventDefault();
         modalContainer.classList.remove('is-visible');
     }
+
+    window.addEventListener( 'keydown', (event) => {
+        if(event.key ==='Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal(event);
+        };
+    })
+
+    modalContainer.addEventListener('click', (event) => {
+        let target = event.target;
+        if(target === modalContainer){
+            hideModal(event);
+        }
+    });
     //returns functions
-    return {
+    return { //new object is created with {}
         getAll: getAll,
         add: add,
         addListItem: addListItem,
         addListener: addListener,
-        loadList:loadList,
+        loadList:loadList, //creates reference for .loadList to trigger
         loadDetails: loadDetails,
         showDetails:showDetails
     };
@@ -136,7 +150,7 @@ let pokemonRepository = (function () {
 
 
 //writes pokemon list
-pokemonRepository.loadList().then(function() {
+pokemonRepository.loadList().then(function() { //loadList is only possible due to return statement
     pokemonRepository.getAll().forEach(function(pokemon) {
         pokemonRepository.addListItem(pokemon);
     });
