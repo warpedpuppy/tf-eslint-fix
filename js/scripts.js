@@ -32,9 +32,10 @@ let pokemonRepository = (function () {
     function addListItem(pokemon){
         let pokemonList = document.querySelector('.pokemon-list');
         let listPokemon = document.createElement('li');
+        listPokemon.classList.add('group-list-item');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('nameButton');
+        button.classList.add('btn-sm', 'btn-dark', 'nameButton');
         addListener(button, pokemon);
         listPokemon.appendChild(button);
         pokemonList.appendChild(listPokemon);
@@ -70,6 +71,9 @@ let pokemonRepository = (function () {
             item.imageUrl = details.sprites.front_default;
             item.weight = details.weight;
             item.height = details.height;
+            item.types = [];
+            for(let i = 0; i < details.types.length; i++)
+              item.types.push(' ' + details.types[i].type.name);
          hideLoadingMessage();
         } catch (e) {
             hideLoadingMessage();
@@ -105,7 +109,7 @@ let pokemonRepository = (function () {
         titleElement.innerText = pokemon.name;
 
         let contentElement = document.createElement('p');
-        contentElement.innerText = `Weight:  ${pokemon.weight}kg \n Height: ${pokemon.height} in`;
+        contentElement.innerText = `Weight:  ${pokemon.weight}kg \n Height: ${pokemon.height} in \n Types: ${pokemon.types}`;
 
 
         let imageElement = document.createElement('img');
