@@ -1,3 +1,4 @@
+
 header {
   text-align: center;
 }
@@ -8,9 +9,10 @@ body {
   font-family: 'Copperplate', sans-serif;
   font-size: 30px;
   text-align: center;
+  cursor: url(img/pokeball.png) 2 2, auto;
 }
 
-.nameButton {
+/*.nameButton {
   background-color: blue;
   color: white;
   border: none;
@@ -22,6 +24,15 @@ body {
   margin: 4px 2px;
   height: 150px;
   width: 400px;
+}*/
+
+.nameButton {
+  height: 150px;
+  width: 400px;
+  border: solid;
+  border-color: blue;
+  margin: 4px;
+  font-size: 30px;
 }
 
 button:hover {
@@ -31,6 +42,7 @@ button:hover {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 #spinner {
@@ -121,7 +133,6 @@ ul {
   width: 150px;
   height: 150px;
 }
-
 
 .animated {
   -webkit-animation-duration: 1s;
