@@ -3,28 +3,24 @@ header {
   text-align: center;
 }
 
-body {
-  background-color: black;
-  color: red;
-  font-family: 'Copperplate', sans-serif;
-  font-size: 30px;
-  text-align: center;
-  cursor: url(img/pokeball.png) 2 2, auto;
+body h1 {
+  font-size: 80px;
+  border-bottom: solid;
+  border-bottom-color: blue;
 }
 
-/*.nameButton {
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 16px 32px;
+body {
+  background-color: black;
+  display: inline;
+  color: red;
+  font-family: 'Copperplate', fantasy, sans-serif;
+  font-size: 30px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 40px;
-  margin: 4px 2px;
-  height: 150px;
-  width: 400px;
-}*/
+}
+
+.textColor {
+  color: red;
+}
 
 .nameButton {
   height: 150px;
@@ -43,6 +39,10 @@ button:hover {
 ul {
   list-style-type: none;
   padding-left: 0;
+}
+
+ul ::first-letter {
+  text-transform: uppercase;
 }
 
 #spinner {
@@ -81,45 +81,28 @@ ul {
   display: none;
 }
 
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  overflow: auto;
-  display: grid;
-  text-align: center;
+.modal-content {
+  border: solid;
+  border-color: white;
+  background-color: blue;
 }
 
-.modal {
-  margin: auto;
-  box-sizing: border-box;
-  background: #7d929b;
-  padding: 15px;
-  width: 100%;
-  height: 400px;
-  max-width: 700px;
-  margin-bottom: 700px;
-}
-
-.modal-close {
-  -webkit-appearance: none;
-  background: none;
-  color: black;
-  float: right;
-  font-weight: bold;
-}
-
-.modal h1 {
+.modal h2 {
   margin-top: 0;
-  color: black;
-  text-transform: capitalize;
+  color: white;
+  text-transform: uppercase;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  background-color: #292b2c;
+  color: red;
   text-align: center;
+}
+
+.modal-footer {
+  background-color: #292b2c;
 }
 
 .modal p {
@@ -132,46 +115,4 @@ ul {
   display: inline;
   width: 150px;
   height: 150px;
-}
-
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes rollIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-100%) rotate(-120deg);
-    transform: translateX(-100%) rotate(-120deg);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0) rotate(0);
-    transform: translateX(0) rotate(0);
-  }
-}
-
-@keyframes rollIn {
-  0% {
-    opacity: 0;
-    -webkit-transorm: translateX(-100%) rotate(-120deg);
-    -ms-transform: translateX(-100%) rotate(-120deg);
-    transform: translateX(-100%) rotate(-120deg);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0) rotate(0);
-    -ms-transform: translateX(0) rotate(0);
-    transform: translateX(0) rotate(0);
-  }
-}
-
-.rollIn {
-  -webkit-animation-name: rollin;
-  animation-name: rollIn;
 }
