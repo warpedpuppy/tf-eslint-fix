@@ -18,8 +18,17 @@ body {
   text-align: center;
 }
 
+.navbar-center {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+
 .textColor {
   color: red;
+  font-size: 60px;
 }
 
 .nameButton {
@@ -115,4 +124,15 @@ ul ::first-letter {
   display: inline;
   width: 150px;
   height: 150px;
+}
+
+.borders {
+  border: solid;
+  border-color: black;
+}
+
+.blank {
+  height: 150px;
+  width: 150px;
+  margin: auto;
 }
