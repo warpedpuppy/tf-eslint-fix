@@ -1,14 +1,18 @@
-
-
+{
     "env": {
         "es6": true,
-        "browser": true
+        "browser": true,
+        "jquery": true
     },
     "extends": [
         "eslint:recommended"
     ],
     "rules": {
-        "quotes": ["error", "single"]
+        "quotes": ["error", "single"],
+        "require-atomic-updates": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 8
     }
 
 }

@@ -4,6 +4,7 @@ let pokemonRepository = (function () {
   const pokemonList = [];
   const modalContainer = document.querySelector('#modal-container');
   const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  const spinner = document.getElementById('spinner');
   //gets pokemon
   function getAll() {
     return pokemonList;
@@ -13,7 +14,7 @@ let pokemonRepository = (function () {
     if (typeof pokemon !== 'object') {
       return 'Not an object';
     } else if ('name' in pokemon && 'type' in pokemon && 'weight' in pokemon) {
-      return `Object doesn't have required properties`;
+      return 'Object doesn&apos;t have required properties';
     } else {
       pokemonList.push(pokemon);
     }
@@ -109,7 +110,7 @@ let pokemonRepository = (function () {
     modalHeader.empty(), modalTitle.empty(), modalBody.empty();
 
     let titleElement = $('<h2>' + pokemon.name + '</h2>');
-    let imageElement = $("<img class='modal-img'>");
+    let imageElement = $('<img class="modal-img">');
     imageElement.attr('src', pokemon.imageUrl);
 
     let heightElement = $('<p>Height: ' + pokemon.height + ' m </p>');
@@ -145,6 +146,33 @@ let pokemonRepository = (function () {
       hideModal(event);
     }
   });
+
+
+  document.getElementById('pokemon-search').addEventListener('input', searchPokemon)
+
+  function searchPokemon() {
+    let searchText = document.querySelector('#pokemon-search').value;
+    let x = searchText.toLowerCase();
+    let poke = document.querySelectorAll('list-item');
+    for (let i = 0; i < poke.length; i++) {
+      let y = poke[i].innerText;
+      if (y.toLowerCase().indexOf(x) > -1) {
+        poke[i].style.display = '';
+      } else {
+        poke[i].style.display = 'none';
+      }
+    }
+  }
+
+
+  window.addEventListener('keydown', function (e) {
+    if (e.key == '13') {
+      e.preventDefault();
+      hideModal(e)
+    }
+  });
+    
+
   //returns functions
   return {
     //new object is created with {}
@@ -166,22 +194,4 @@ pokemonRepository.loadList().then(function () {
   });
 });
 
-function searchPokemon() {
-  let searchText = document.querySelector('#pokemon-search').value;
-  let x = searchText.toLowerCase();
-  let poke = document.querySelectorAll('list-item');
-  for (let i = 0; i < poke.length; i++) {
-    let y = poke[i].innerText;
-    if (y.toLowerCase().indexOf(x) > -1) {
-      poke[i].style.display = '';
-    } else {
-      poke[i].style.display = 'none';
-    }
-  }
-}
 
-windows.addEventListener('keydown', function (e) {
-  if (e.keyCode == '13') {
-    e.preventDefault();
-  }
-});
