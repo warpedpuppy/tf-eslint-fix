@@ -1,19 +1,22 @@
 header {
   text-align: center;
 }
+
 body h1 {
   font-size: 80px;
   border-bottom: solid;
-  border-bottom-color: #00f;
+  border-bottom-color: blue;
 }
+
 body {
-  background-color: #000;
+  background-color: black;
   display: inline;
   color: red;
-  font-family: Copperplate, fantasy, sans-serif;
+  font-family: "Copperplate", fantasy, sans-serif;
   font-size: 30px;
   text-align: center;
 }
+
 .navbar-center {
   position: absolute;
   width: 100%;
@@ -21,29 +24,35 @@ body {
   top: 0;
   text-align: center;
 }
+
 .textColor {
   color: red;
   font-size: 60px;
 }
+
 .nameButton {
   height: 150px;
   width: 400px;
   border: solid;
-  border-color: #00f;
+  border-color: blue;
   margin: 4px;
   font-size: 30px;
 }
+
 button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
+
 ul {
   list-style-type: none;
   padding-left: 0;
 }
+
 ul ::first-letter {
   text-transform: uppercase;
 }
+
 #spinner {
   visibility: hidden;
   width: 80px;
@@ -56,35 +65,42 @@ ul ::first-letter {
   bottom: 0;
   left: 0;
   right: 0;
-  border-color: red red red maroon;
+  border-color: #f00 #f00 #f00 maroon;
   margin: auto;
   box-shadow: 0 0 40px -2px;
   animation: spin 1s infinite ease-in-out;
 }
+
 @keyframes spin {
   100% {
     transform: rotateZ(360deg);
   }
 }
+
 #spinner.show {
   visibility: visible;
 }
+
 #spinner.hide {
   visibility: hidden;
 }
+
 #modal-container {
   display: none;
 }
+
 .modal-content {
   border: solid;
-  border-color: #fff;
-  background-color: #00f;
+  border-color: white;
+  background-color: blue;
 }
+
 .modal h2 {
   margin-top: 0;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
 }
+
 .modal-header {
   display: flex;
   justify-content: center;
@@ -92,20 +108,23 @@ ul ::first-letter {
   color: red;
   text-align: center;
 }
+
 .modal-footer {
   background-color: #292b2c;
 }
+
 .modal p {
   margin-bottom: 0;
-  color: #000;
+  color: black;
 }
+
 .modal img {
   margin: 15px;
   display: inline;
   width: 150px;
   height: 150px;
 }
+
 .borders {
   border: solid;
-  border-color: #000;
 }
