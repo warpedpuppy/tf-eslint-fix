@@ -109,9 +109,3 @@ ul ::first-letter {
   border: solid;
   border-color: #000;
 }
-
-.blank {
-  height: 150px;
-  width: 150px;
-  margin: auto;
-}
