@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <title>Pokédex</title>
-        <link rel='shortcut icon' href='./img/pokeball.png'>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Pokédex</title>
+    <link rel="shortcut icon" href="./img/pokeball.png" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="dist/minifiedstyles.css" rel="stylesheet" type="text/css" />
+  </head>
 
+<<<<<<< Updated upstream
     <body>
           <nav class="navbar  navbar-dark, borders, d-flex justify-content-between">
             <div class='blank, borders'></div>
@@ -35,28 +41,102 @@
         <div class = 'main-stuff'>
             <div id = 'spinner'></div>
             <ul class='pokemon-list list-group'></ul>
+=======
+  <body>
+    <nav class="navbar navbar-dark, borders, d-flex justify-content-between">
+      <img src="./img/pokeball.png" alt="pokemon image" />
+      <div class="navbar-header">
+        <span class="navbar-text, textColor">Pokédex</span>
+      </div>
+      <button
+        class="navbar-toggler navbar-dark"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class = "modal fade" id = 'modal-container' tabindex='-1' role='dialog' aria-labelledby='modal-container' aria-hidden='true'>
-              <div class='modal-diaglog modal-dialog' role='document'>
-                <div class='modal-content'>
-                  <div class='modal-header'></div>
-                  <div class='modal-body'></div>
-                  <div class='modal-footer'>
-        <!--   <div id='modal-container' class = 'animated rollIn' ></div> -->
-                    <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                  </div>
-                </div>
-              </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Home<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="center-stuff">
+      <div class="blank-box"></div>
+      <form class="col-8">
+        <input
+          id="pokemon-search"
+          oninput="searchPokemon()"
+          placeholder="Search"
+          class="form-control col-4 mb-2 mb-md-0"
+          type="search"
+          aria-label="search"
+        />
+      </form>
+      <div class="blank-box"></div>
+    </div>
+    <div class="main-stuff">
+      <div id="spinner"></div>
+      <ul class="pokemon-list list-group"></ul>
+>>>>>>> Stashed changes
+
+      <div
+        class="modal fade"
+        id="modal-container"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modal-container"
+        aria-hidden="true"
+      >
+        <div class="modal-diaglog modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <!--   <div id='modal-container' class = 'animated rollIn' ></div> -->
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-            <script src="js/promise-polyfill.js"></script>
-            <script src="js/fetch-polyfill.js"></script>
-            <script src="js/scripts.js" > </script>
-    </body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/promise-polyfill.js"></script>
+    <script src="js/fetch-polyfill.js"></script>
+    <script src="dist/minifiedscripts.js"></script>
+  </body>
 </html>
