@@ -44,24 +44,23 @@
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
-        </ul>
+        <li class="nav-item justify-content-center">
+          <form>
+            <input
+              id="pokemon-search"
+              oninput="searchPokemon()"
+              placeholder="Search"
+              class="form-control col-4 mx-auto "
+              type="search"
+              aria-label="search"
+            />
+          </form>
+        </li>
+      </ul>
       </div>
     </nav>
 
-    <div class="center-stuff">
-      <div class="blank-box"></div>
-      <form class="col-8">
-        <input
-          id="pokemon-search"
-          oninput="searchPokemon()"
-          placeholder="Search"
-          class="form-control col-4 mb-2 mb-md-0"
-          type="search"
-          aria-label="search"
-        />
-      </form>
-      <div class="blank-box"></div>
-    </div>
+
     <div class="main-stuff">
       <div id="spinner"></div>
       <ul class="pokemon-list list-group"></ul>
