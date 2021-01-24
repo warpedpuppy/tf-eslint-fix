@@ -128,3 +128,24 @@ ul ::first-letter {
 .borders {
   border: solid;
 }
+
+#title {
+  font-size: 40px;
+  font-family: "Inconsolata", monospace;
+}
+
+p {
+  font-size: 25px;
+  color: red;
+  font-family: "Inconsolata", monospace;
+}
+
+ul {
+  font-family: "Inconsolata", monospace;
+}
+
+.links {
+  font-size: 40px;
+  color: blue;
+  font-family: "Inconsolata", monospace;
+}
